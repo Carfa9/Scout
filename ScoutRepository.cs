@@ -2,27 +2,28 @@
 
 public class ScoutRepository
 {
-    private List<Scout> Scouts { get; } = new List<Scout>();
-    public List<Activity> Activities { get; } = new List<Activity>();
+    private List<Scout> Scouts = [];
+    private List<Activity> Activities = [];
 
-    public void AddScout(Scout scouts)
+    
+    public void AddScout(Scout scout)
     {
-        Scouts.Add(scouts);
+        Scouts.Add(scout);
     }
 
-    public void AddActivity(Activity activity)
+    public void AddActivities(Activity activity)
     {
         Activities.Add(activity);
     }
 
     public List<Activity> GetComingActivities()
     {
-        List<Activity> comingActivities = [];           //Ny lista som samlar kommande aktiviteter.
-        foreach(var activity in Activities)
+        List<Activity> comingActivities = [];
+        foreach (var activity in Activities)
         {
             if (activity.Date >= DateTime.Now)
             {
-               comingActivities.Add(activity);
+              comingActivities.Add(activity);  
             }
         }
         return comingActivities;
@@ -30,20 +31,20 @@ public class ScoutRepository
 
     public List<Activity> GetPastActivities()
     {
-         List<Activity> pastActivities = [];        //Ny lista som samlar gamla aktiviteter.
-
-            foreach(var activity in Activities)
+        List<Activity> pastActivities = [];
+        foreach (var activity in Activities)
+        {
+            if (activity.Date < DateTime.Now)
             {
-             if (activity.Date < DateTime.Today)
-                {
-                pastActivities.Add(activity); 
-                }  
+                pastActivities.Add(activity);
             }
-            return pastActivities;
         }
+        return pastActivities;
+    }  
 
-    public void GetReminder(Activity activity)
+    public void SendReminder( Activity activity)
     {
 
-    }
+    }  
+   
 }
