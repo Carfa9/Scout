@@ -26,7 +26,7 @@ class Program
         Activity activity2 = new Activity("Läger", new DateTime(2024, 07, 25), "Skogen", "Ta med ryggsäck med sovsäck, liggunderlag och nödvändiga saker. Vi tar med maten, anmäl allergi till oss senast 2024-07-01");
         Activity activity3 = new Activity("Eldhantering", new DateTime(2024, 11, 22), "Skogen", "Ta med ombyte och oömma kläder!");
 
-        
+
         scoutRepository.AddActivity(activity1);
         scoutRepository.AddActivity(activity2);
         scoutRepository.AddActivity(activity3);
@@ -46,8 +46,19 @@ class Program
         activity3.AddParticipant(scout5);
         activity3.AddParticipant(scout6);
 
-        
-        
+        List<Activity> pastActivities = scoutRepository.GetPastActivities();
 
+        foreach (var activity in pastActivities)
+        {
+            Console.WriteLine($"{activity.ActivityName} - {activity.Date} - {activity.Location}");
+            Console.WriteLine($"Anteckningar: {activity.Notes}");
+            Console.WriteLine($"Deltagare: ");
+
+            foreach (var scout in activity.Participants)
+            {
+                Console.Write($"{scout.Name}, ");
+            }
+        }
+        Console.ReadLine();
     }
 }

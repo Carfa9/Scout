@@ -5,16 +5,16 @@ public class Activity
 {
     public string ActivityName { get; set; }
     public DateTime Date { get; set; }
-    public string Locations { get; set; }
+    public string Location { get; set; }
     public string Notes { get; private set; }
-    private List<Scout> Participants { get; } = new List<Scout>();
+    public List<Scout> Participants { get; } = new List<Scout>();
 
 
-    public Activity(string activityName, DateTime date, string locations, string notes)
+    public Activity(string activityName, DateTime date, string location, string notes)
     {
         ActivityName = activityName;
         Date = date;
-        Locations = locations;
+        Location = location;
         Notes = notes;
     }
 

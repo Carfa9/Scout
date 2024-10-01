@@ -17,27 +17,30 @@ public class ScoutRepository
 
     public List<Activity> GetComingActivities()
     {
+        List<Activity> comingActivities = [];           //Ny lista som samlar kommande aktiviteter.
         foreach(var activity in Activities)
         {
-            if (activity.Date > DateTime.Now)
+            if (activity.Date >= DateTime.Now)
             {
-               return ; 
+               comingActivities.Add(activity);
             }
         }
-         
+        return comingActivities;
     }
 
     public List<Activity> GetPastActivities()
     {
-        foreach(Activity activity in Activities)
-        {
-            if (activity.Date < DateTime.Today)
+         List<Activity> pastActivities = [];        //Ny lista som samlar gamla aktiviteter.
+
+            foreach(var activity in Activities)
             {
-            return Console.WriteLine(activity.ActivityName, activity.Date, activity.Locations. activity.Notes); 
+             if (activity.Date < DateTime.Today)
+                {
+                pastActivities.Add(activity); 
+                }  
             }
-            
-    }
-    }
+            return pastActivities;
+        }
 
     public void GetReminder(Activity activity)
     {
