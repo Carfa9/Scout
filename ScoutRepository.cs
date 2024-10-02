@@ -16,6 +16,16 @@ public class ScoutRepository
         _activities.Add(activity);
     }
 
+    public void RegisterParticipantToActivity(int scoutId, int activityId)
+    {
+        _activities[activityId].Participants.Add(_scouts[scoutId]);
+    }
+
+    public Activity GetActivityById(int activityId)
+    {
+        return _activities[activityId];
+    }
+
     public List<Activity> GetComingActivities()
     {
         List<Activity> comingActivities = [];
@@ -44,7 +54,10 @@ public class ScoutRepository
 
     public void SendReminder( Activity activity)
     {
-
+            foreach (var scout in _scouts)
+            {
+                Console.WriteLine("Låtsas maila till: " + scout.Email);
+            }
     }  
    
 }

@@ -12,6 +12,7 @@ public class Scout
         {
             throw new ArgumentException("Måste vara namn och email!");
         }
+
             Name = name;
             Email = email;
             Phone = phone;

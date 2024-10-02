@@ -13,7 +13,7 @@ public class Activity
     {
         get
         {
-            return "Aktivitet: " + ActivityName + "Datum: " + Date.ToShortDateString();
+            return "Aktivitet: " + ActivityName + "\nDatum: " + Date.ToShortDateString();
         
         }
     }
