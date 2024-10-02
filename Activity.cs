@@ -1,8 +1,6 @@
 ﻿
 
 
-using System.Dynamic;
-
 public class Activity
 {
     public string ActivityName {get; set;}
@@ -10,13 +8,21 @@ public class Activity
     public string Location {get; set;}
     public List<Scout> Participants {get;}= new List<Scout>();
     public string Note {get; set;}
+
+    public string Info
+    {
+        get
+        {
+            return "Aktivitet: " + ActivityName + "Datum: " + Date.ToShortDateString();
+        
+        }
+    }
     
-    public Activity(string activityName, DateTime date, string location, string note)
+    public Activity(string activityName, DateTime date, string location)
     {
         ActivityName = activityName;
         Date = date;
         Location = location;
-        Note = note;
     }
     
     public void AddParticipant(Scout participant)

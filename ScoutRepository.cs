@@ -2,24 +2,24 @@
 
 public class ScoutRepository
 {
-    private List<Scout> Scouts = [];
-    private List<Activity> Activities = [];
+    private List<Scout> _scouts = [];
+    private List<Activity> _activities = [];
 
     
     public void AddScout(Scout scout)
     {
-        Scouts.Add(scout);
+        _scouts.Add(scout);
     }
 
     public void AddActivities(Activity activity)
     {
-        Activities.Add(activity);
+        _activities.Add(activity);
     }
 
     public List<Activity> GetComingActivities()
     {
         List<Activity> comingActivities = [];
-        foreach (var activity in Activities)
+        foreach (var activity in _activities)
         {
             if (activity.Date >= DateTime.Now)
             {
@@ -32,7 +32,7 @@ public class ScoutRepository
     public List<Activity> GetPastActivities()
     {
         List<Activity> pastActivities = [];
-        foreach (var activity in Activities)
+        foreach (var activity in _activities)
         {
             if (activity.Date < DateTime.Now)
             {
